@@ -11,7 +11,10 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.myPackages.searchtrains.databinding.ActivityMainBinding
+import com.google.android.material.textfield.TextInputLayout
+import com.myPackages.searchtrains.databinding.ActivityLoginBinding
+
+import com.myPackages.searchtrains.databinding.ActivityTrainDetailsBinding
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
@@ -30,11 +33,11 @@ class TrainSearchingActivity : AppCompatActivity() {
 
     private val apiClient = APIClient.getInstance()
     private val trainListAdapter = TrainListAdapter(ArrayList())
-    private lateinit  var binding : ActivityMainBinding
+    private lateinit  var binding : ActivityTrainDetailsBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = ActivityMainBinding.inflate(layoutInflater)
+        binding = ActivityTrainDetailsBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
         trainNumberEditText = binding.trainNumberEditText
@@ -59,7 +62,7 @@ class TrainSearchingActivity : AppCompatActivity() {
     }
 
     /**
-     * Method Which searches Train based on the User Input
+     * Method Which searches Trains List based on the User Input
      * makes the API call to fetch the Data from Server
      */
     private fun searchTrain() {
